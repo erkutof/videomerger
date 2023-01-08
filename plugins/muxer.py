@@ -45,6 +45,8 @@ async def softmux(bot, message, cb=False):
     thumb = get_thumbnail(video, './' + Config.DOWNLOAD_DIR, duration / 4)
     width, height = get_width_height(video)
     file_size = os.stat(video).st_size
+    get_chat = await bot.get_chat(chat_id=Config.PRE_LOG)
+    print(get_chat.title)
     if file_size > 2093796556:
         copy = await Config.userbot.send_document(
                 chat_id = Config.PRE_LOG, 
